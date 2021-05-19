@@ -15,9 +15,9 @@ export class VaccinationListComponent implements OnInit {
     this.vaccinations = [
       new Vaccination(
       1,
-      new Date (),
-      new Date (),
-      new Date(),
+      new Date (2021-5-27),
+      new Date (2021-5-27),
+      new Date(2021-5-27),
       13,
       1,
         {id: 1, 
@@ -31,7 +31,7 @@ export class VaccinationListComponent implements OnInit {
             lastName: 'Baratheon', 
             password: 'test', 
             svnr: 0,
-            bdate: new Date (),  
+            bdate: new Date (1997-12-16),  
             email: 'm.bara@gmx.at', 
             phone: '07675849359344', 
             vaccinated: false, 

@@ -1,3 +1,9 @@
-<p>
-  vaccination-list works!
-</p>
+<div class="ui middle aligned selection divided list">
+  <a *ngFor="let vaccination of vaccinations" class="item">
+    <div class="content">
+    <div class="header">{{ vaccination.id }}</div>
+    <div class="description"> {{ vaccination.date }}</div> 
+    <div class="amount">{{vaccination.amount}}</div>
+  </div>
+  </a>
+</div>

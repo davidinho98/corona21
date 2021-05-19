@@ -4,10 +4,10 @@ export { Vaccination } from "./vaccination";
 export class Location {
   constructor(
     public id: number,
-    public plz: string,
+    public plz: number,
     public place: string,
-    public street: number,
-    public streetnumber: string,
+    public street: string,
+    public streetnumber: number,
     public info?: string, 
   ) {}
 }

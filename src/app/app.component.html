@@ -1,1 +1,2 @@
-<bs-vaccination-list></bs-vaccination-list>
+<bs-vaccination-list *ngIf="listOn" (showDetailsEvent)="showDetails($event)"></bs-vaccination-list>
+<bs-vaccination-details *ngIf="detailsOn" [vaccination]="vaccination" (showListEvent)="showList()"></bs-vaccination-details>

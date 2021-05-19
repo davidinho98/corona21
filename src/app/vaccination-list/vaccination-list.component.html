@@ -1,9 +1,5 @@
 <div class="ui middle aligned selection divided list">
-  <a *ngFor="let vaccination of vaccinations" class="item">
-    <div class="content">
-    <div class="header">{{ vaccination.id }}</div>
-    <div class="description"> {{ vaccination.date }}</div> 
-    <div class="amount">{{vaccination.amount}}</div>
-  </div>
+  <a *ngFor="let vaccination of vaccinations" class="item bs-vaccination-list-item" [vaccination]="vaccination" (click)="showDetails(vaccination)">
+    
   </a>
 </div>

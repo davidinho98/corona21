@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Vaccination, Location, User } from '../shared/vaccination';
 
 @Component({
@@ -7,7 +7,13 @@ import { Vaccination, Location, User } from '../shared/vaccination';
 })
 export class VaccinationListComponent implements OnInit {
 
+  @Output() showDetailsEvent = new EventEmitter<Vaccination>();
+
   constructor() { }
+
+  showDetails(vaccination:Vaccination){
+      this.showDetailsEvent.emit(vaccination);
+  }
 
   vaccinations: Vaccination[];
 

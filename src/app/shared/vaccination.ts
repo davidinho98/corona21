@@ -1,7 +1,7 @@
-//import { User } from "./user";
-//export { User } from "./user";
-//import { Location } from './location';
-//export { Location } from './location';
+import { User } from "./user";
+export { User } from "./user";
+import { Location } from './location';
+export { Location } from './location';
 
 export class Vaccination {
   constructor(
@@ -11,7 +11,7 @@ export class Vaccination {
     public end: Date,
     public amount: number,
     public location_id: number,
-    //public location: Location,
-    //public users?: User[]
+    public location: Location,
+    public users?: User[]
   ) {}
 }

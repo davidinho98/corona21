@@ -1,5 +1,49 @@
-<p>
-vaccination-details works!
-</p>
+<div class="item">
+  <div class="content">
+    <h1 class="header">Übersicht über Ihre Impfung am Standort {{vaccination.location.place}}</h1>
+  <div class="info">
+    <p>Allgemeine Informationen zum Standort {{vaccination.location.place}}:</p>
+    <table>
+      <p>- Bezirk: {{vaccination.location.place}}</p>
+      <p>- Dazugehörige Postleitzahl: {{vaccination.location.plz}}</p>
+      <p>- Straße und Hausnummer: {{vaccination.location.street}}, {{vaccination.location.streetnumber}}</p>
+    </table>
+  </div>
+  <br>
+  <div class="info2">
+    <p>Allgemeine Informationen zur Impfung am {{vaccination.date}}:</p>
+    <table>
+      <p>- Start: {{vaccination.start}}</p>
+      <p>- Ende: {{vaccination.end}}</p>
+    </table>
+  </div>
+  <br>
+  <p>Allgemeine Informationen der angemeldeten Personen:</p>
+  <table class="ui six column table">
+        <thead>
+          <tr>
+            <th>Vorname</th>
+            <th>Nachname</th>
+            <th>SVNR</th>
+            <th>EMAIL</th>
+            <th>Telefonnummer</th>
+            <th>Geburtsdaum</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of vaccination.users; last as l">
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.svnr}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.bdate}}</td>
+          </tr>
+        </tbody>
+  </table>
+  </div>
+
+</div>
+<br>
 
 <button (click)="showVaccinationList()" class="ui red button">Zurüch zur Ansicht</button>

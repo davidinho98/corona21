@@ -7,10 +7,12 @@ import { VaccinationListComponent } from './vaccination-list/vaccination-list.co
 import { VaccinationListItemComponent } from './vaccination-list-item/vaccination-list-item.component';
 import { VaccinationDetailsComponent } from './vaccination-details/vaccination-details.component';
 import { VaccinationService } from './shared/vaccination.service';
+import { HomeComponent } from './home/home.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, VaccinationListComponent, VaccinationListItemComponent, VaccinationDetailsComponent ],
+  imports:      [ BrowserModule, FormsModule, AppRoutingModule ],
+  declarations: [ AppComponent, VaccinationListComponent, VaccinationListItemComponent, VaccinationDetailsComponent, HomeComponent ],
   bootstrap:    [ AppComponent ],
   providers: [VaccinationService]
 })

@@ -43,7 +43,7 @@ export class VaccinationService {
     return this.vaccinations;
   }
 
-  getSingle(id:number){
+  getSingle(id: number){
     return this.vaccinations.find(vaccination => vaccination.id === id);
   }
 

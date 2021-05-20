@@ -1,5 +1,5 @@
 <div class="ui middle aligned selection divided list">
-  <a *ngFor="let vaccination of vaccinations" class="item bs-vaccination-list-item" [vaccination]="vaccination" (click)="showDetails(vaccination)">
+  <a *ngFor="let vaccination of vaccinations" class="item bs-vaccination-list-item" [vaccination]="vaccination" [routerLink]=[vaccination.id]>
     
   </a>
 </div>

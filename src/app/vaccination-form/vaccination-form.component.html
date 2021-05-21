@@ -1,0 +1,10 @@
+<h1>Impfung hinzufügen</h1>
+<form class="ui large form" [formGroup]="vaccinationForm">
+
+<div class = "field">
+  <label>Anzahl an möglichen Personen für diese Impfung</label>
+  <input type="number" formControlName="amount">
+  <div *ngIf="errors.amount" class="ui negative message">{{errors.amount}}</div>
+</div>
+
+</form>

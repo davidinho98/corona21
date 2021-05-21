@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { debounceTime, distinctUntilChanged, filter, tap, switchMap } from 'rxjs/operators';
-import { Vaccination } from '../shared/vaccination';
+import { Vaccination } from '../shared/location';
 import { VaccinationService } from '../shared/vaccination.service';
 
 @Component({

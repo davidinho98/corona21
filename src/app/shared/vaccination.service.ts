@@ -27,9 +27,21 @@ export class VaccinationService {
   }
 
   // Keine Fehlermeldung mehr nach hinzufügen von "<Array<" in 31
-  getAllSearch(searchTerm: string): Observable<Array<Vaccination>> {
+  getAllSearch(searchTerm: string):Observable<Array<Vaccination>> {
     return this.http.get<Array<Vaccination>>(`${this.api}/vaccinations/search/${searchTerm}`)
      .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
+  create(vaccination: Vaccination):Observable<any> {
+    return this.http.post(`${this.api}/vaccinations`, vaccination)
+      .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
+  update(vaccination: Vaccination):Observable<any> {
+    return this.http
+      .put(`${this.api}/vaccinations/${vaccination.id}`, vaccination)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
   }
 
   private errorHandler(error:Error | any){

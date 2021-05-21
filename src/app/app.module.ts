@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { VaccinationListComponent } from './vaccination-list/vaccination-list.component';
@@ -11,11 +11,12 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
+import { VaccinationFormComponent } from './vaccination-form/vaccination-form.component';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, AppRoutingModule, HttpClientModule ],
-  declarations: [ AppComponent, VaccinationListComponent, VaccinationListItemComponent, VaccinationDetailsComponent, HomeComponent, SearchComponent ],
-  bootstrap:    [ AppComponent ],
+  imports:[ BrowserModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule ],
+  declarations: [ AppComponent, VaccinationListComponent, VaccinationListItemComponent, VaccinationDetailsComponent, HomeComponent, SearchComponent, VaccinationFormComponent ],
+  bootstrap: [ AppComponent ],
   providers: [VaccinationService]
 })
 export class AppModule { }

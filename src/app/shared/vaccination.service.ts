@@ -1,50 +1,28 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 import { Vaccination, Location, User } from './vaccination';
 
 @Injectable()
 export class VaccinationService {
 
-  private vaccinations: Vaccination[];
+  private api = "https://corona21.s1810456013.student.kwmhgb.at/api";
 
-  constructor() { 
-
-  this.vaccinations = [
-      new Vaccination(
-      1,
-      new Date (2021-5-27),
-      new Date (2021-5-27),
-      new Date(2021-5-27),
-      13,
-      1,
-        {id: 1, 
-        plz: 5656, 
-        place: 'House Frey', 
-        street: 'Lärchenweg', 
-        streetnumber: 33, 
-        info: 'Test'},
-          [{id: 0, 
-            firstName: 'Mike', 
-            lastName: 'Baratheon', 
-            password: 'test', 
-            svnr: 0,
-            bdate: new Date (1997-12-16),  
-            email: 'm.bara@gmx.at', 
-            phone: '07675849359344', 
-            vaccinated: false, 
-            admin: false,
-            termin: false, 
-            vaccination_id: 1}]
-      )
-    ];
-
+  constructor(private http:HttpClient) { 
   }
 
-  getAll(){
-    return this.vaccinations;
+  getAll():Observable<Array<Vaccination>> {
+    return this.http.get<Array<Vaccination>>(`${this.api}/vaccinations`).pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 
-  getSingle(id: number){
-    return this.vaccinations.find(vaccination => vaccination.id === id);
+  getSingle(id: number):Observable<Vaccination> {
+    return this.http.get<Vaccination>(`${this.api}/vaccination/${id}`).pipe(retry(3))
+    .pipe(catchError(this.errorHandler));
+  }
+
+  private errorHandler(error:Error | any){
+    return throwError(error);
   }
 
 }

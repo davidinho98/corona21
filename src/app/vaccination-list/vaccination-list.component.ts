@@ -19,6 +19,6 @@ export class VaccinationListComponent implements OnInit {
   vaccinations: Vaccination[];
 
   ngOnInit() {
-    this.vaccinations = this.bs.getAll();
+    this.bs.getAll().subscribe(res => this.vaccinations = res);
   }
 }

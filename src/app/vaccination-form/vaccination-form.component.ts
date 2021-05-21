@@ -36,6 +36,10 @@ export class VaccinationFormComponent implements OnInit {
       this.vaccinationForm = this.fb.group({
         amount: [this.vaccination.amount,Validators.required] 
       });
+      this.vaccinationForm.statusChanges.subscribe(()=>{
+        this.updateErrorMessages();
+      }
+      );
   }
 
   updateErrorMessages(){
@@ -43,7 +47,7 @@ export class VaccinationFormComponent implements OnInit {
     for (const message of VaccinationFormErrorMessages){
       const control = this.vaccinationForm.get(message.forControl);
       if(control && control.dirty && control.invalid && control.errors[message.forValidator] && !this.errors[message.forControl]){
-        
+        this.errors[message.forControl] = message.text;
       }
     }
   }

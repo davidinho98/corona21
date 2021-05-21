@@ -46,4 +46,7 @@
 </div>
 <br>
 
-<button [routerLink]="'/vaccinations'" class="ui red button">Zurüch zur Ansicht</button>
+<button [routerLink]="'/vaccinations'" class="ui tiny red button">Zurüch zur Ansicht</button>
+
+<button class="ui tiny red labeled icon button" (click)="removeVaccination()">
+  <i class="remove icon"></i>Impfung löschen</button>

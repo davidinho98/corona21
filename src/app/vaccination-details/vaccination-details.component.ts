@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Vaccination } from '../shared/vaccination';
+import { VaccinationFactory } from '../shared/vaccination-factory';
 import { VaccinationService } from '../shared/vaccination.service';
 
 @Component({
@@ -8,20 +9,24 @@ import { VaccinationService } from '../shared/vaccination.service';
   templateUrl: './vaccination-details.component.html'
 })
 export class VaccinationDetailsComponent implements OnInit {
-  @Input() vaccination : Vaccination;
-  @Output() showListEvent = new EventEmitter<any>();
+  vaccination : Vaccination = VaccinationFactory.empty();
 
-  constructor(private bs: VaccinationService, private route:ActivatedRoute) { }
+  constructor(private bs: VaccinationService, private route:ActivatedRoute,
+  private router:Router) { }
 
   ngOnInit() {
     const params = this.route.snapshot.params;
     this.bs.getSingle(+params['id']).subscribe(res => this.vaccination = res);
-    console.log(this.vaccination);
-    //this.bs.getSingle(+params['id']).subscribe(l => (this.vaccination = l));
   }
 
-  showVaccinationList(){
-    this.showListEvent.emit();
+  removeVaccination(){
+    if(confirm("Wollen Sie die Impfung wirklich löschen?")){
+      this.bs.remove(this.vaccination.id).subscribe(
+        res => {
+          this.router.navigate(['../'],{relativeTo:this.route});
+        }
+      );
+    }
   }
 
 }

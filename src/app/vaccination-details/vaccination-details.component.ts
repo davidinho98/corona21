@@ -16,6 +16,7 @@ export class VaccinationDetailsComponent implements OnInit {
   ngOnInit() {
     const params = this.route.snapshot.params;
     this.bs.getSingle(+params['id']).subscribe(res => this.vaccination = res);
+    console.log(this.vaccination);
     //this.bs.getSingle(+params['id']).subscribe(l => (this.vaccination = l));
   }
 

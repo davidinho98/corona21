@@ -17,7 +17,7 @@ export class VaccinationService {
   }
 
   getSingle(id: number):Observable<Vaccination> {
-    return this.http.get<Vaccination>(`${this.api}/vaccination/${id}`).pipe(retry(3))
+    return this.http.get<Vaccination>(`${this.api}/vaccinations/${id}`).pipe(retry(3))
     .pipe(catchError(this.errorHandler));
   }
 

@@ -13,11 +13,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
 import { VaccinationFormComponent } from './vaccination-form/vaccination-form.component';
+import { LoginComponent } from './login/login.component';
+import { AuthenticationService } from './shared/authentication.service';
 
 @NgModule({
   imports:[ BrowserModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule ],
-  declarations: [ AppComponent, VaccinationListComponent, VaccinationListItemComponent, VaccinationDetailsComponent, HomeComponent, SearchComponent, VaccinationFormComponent ],
+  declarations: [ AppComponent, VaccinationListComponent, VaccinationListItemComponent, VaccinationDetailsComponent, HomeComponent, SearchComponent, VaccinationFormComponent, LoginComponent ],
   bootstrap: [ AppComponent ],
-  providers: [VaccinationService, LocationService]
+  providers: [VaccinationService, LocationService, AuthenticationService]
 })
 export class AppModule { }

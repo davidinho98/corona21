@@ -17,6 +17,7 @@ export class VaccinationFormComponent implements OnInit {
   isUpdatingVaccination = false;
   errors:{[key:string]:string}={};
   locations: Location[];
+  updateLocation: number;
 
   constructor(private fb:FormBuilder, private bs:VaccinationService, private route: ActivatedRoute, private router:Router) { }
 
@@ -37,6 +38,7 @@ export class VaccinationFormComponent implements OnInit {
 
   initVaccination(){
       //Formular bauen
+      this.vaccination.location_id = this.updateLocation;
       this.vaccinationForm = this.fb.group({
         id: this.vaccination.id,
         date: this.vaccination.date,
@@ -45,8 +47,7 @@ export class VaccinationFormComponent implements OnInit {
         amount: [this.vaccination.amount,[ 
           Validators.required, 
           Validators.min(1), Validators.max(250)]],
-        location_id: [this.vaccination.location_id],
-        location: [this.vaccination.location.place] 
+        location_id: [this.vaccination.location_id]
       });
       this.vaccinationForm.statusChanges.subscribe(()=>{
         this.updateErrorMessages();

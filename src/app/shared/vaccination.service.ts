@@ -26,6 +26,7 @@ export class VaccinationService {
       .pipe(catchError(this.errorHandler));
   }
 
+  // Suchleist in home
   // Keine Fehlermeldung mehr nach hinzufügen von "<Array<" in 31
   getAllSearch(searchTerm: string):Observable<Array<Vaccination>> {
     return this.http.get<Array<Vaccination>>(`${this.api}/vaccinations/search/${searchTerm}`)

@@ -20,4 +20,12 @@ export class LocationService {
     return throwError(error);
   }
 
+  //validator für die plz einer location
+  check(plz:String):Observable<Boolean>{
+    return this.http
+    .get<Boolean>(`${this.api}/locations/checkplz/${plz}`)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
+
 }

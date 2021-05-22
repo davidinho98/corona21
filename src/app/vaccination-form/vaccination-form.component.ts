@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Vaccination } from '../shared/location';
+import { Vaccination, Location } from '../shared/location';
 import { VaccinationFactory } from '../shared/vaccination-factory';
 import { VaccinationService } from '../shared/vaccination.service';
 import { VaccinationFormErrorMessages } from './vaccination-form-error-messages';
@@ -16,6 +16,7 @@ export class VaccinationFormComponent implements OnInit {
   vaccination = VaccinationFactory.empty();
   isUpdatingVaccination = false;
   errors:{[key:string]:string}={};
+  locations: Location[];
 
   constructor(private fb:FormBuilder, private bs:VaccinationService, private route: ActivatedRoute, private router:Router) { }
 
@@ -34,7 +35,15 @@ export class VaccinationFormComponent implements OnInit {
   initVaccination(){
       //Formular bauen
       this.vaccinationForm = this.fb.group({
-        amount: [this.vaccination.amount,Validators.required] 
+        id: this.vaccination.id,
+        date: this.vaccination.date,
+        start: this.vaccination.start,
+        end: this.vaccination.end,
+        amount: [this.vaccination.amount,[ 
+          Validators.required, 
+          Validators.min(1), Validators.max(250)]],
+        location_id: [this.vaccination.location_id],
+        location: [this.vaccination.location.place] 
       });
       this.vaccinationForm.statusChanges.subscribe(()=>{
         this.updateErrorMessages();
@@ -50,6 +59,10 @@ export class VaccinationFormComponent implements OnInit {
         this.errors[message.forControl] = message.text;
       }
     }
+  }
+
+  submitForm(){
+
   }
 
 }

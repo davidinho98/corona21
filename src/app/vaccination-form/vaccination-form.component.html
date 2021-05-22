@@ -1,10 +1,39 @@
 <h1>Impfung hinzufügen</h1>
-<form class="ui large form" [formGroup]="vaccinationForm">
+<form class="ui large form" [formGroup]="vaccinationForm" (ngSubmit)="submitForm()">
 
 <div class = "field">
   <label>Anzahl an möglichen Personen für diese Impfung</label>
   <input type="number" formControlName="amount">
   <div *ngIf="errors.amount" class="ui negative message">{{errors.amount}}</div>
 </div>
+
+<div class="field">
+    <label>Datum</label>
+    <input type="date" formControlName="date" />
+</div>
+
+<div class="field">
+    <label>Start der Impfung</label>
+    <input  type="time" formControlName="start" />
+</div>
+
+<div class="field">
+    <label>Ende der Impfung</label>
+    <input  type="time" formControlName="end" />
+</div>
+
+<div class="field">
+    <label>Ort</label>
+    <select class="ui dropdown" formControlName="location_id">
+      <option *ngFor="let location of locations" [value]="location.id">
+      {{location.place}}</option>
+    </select>
+</div>
+
+<button *ngIf="isUpdatingVaccination" type="submit" class="ui button"
+    [disabled]="vaccinationForm.invalid">Impfung ändern</button>
+
+<button *ngIf="!isUpdatingVaccination" type="submit" class="ui button"
+    [disabled]="vaccinationForm.invalid">Impfung speichern</button>
 
 </form>

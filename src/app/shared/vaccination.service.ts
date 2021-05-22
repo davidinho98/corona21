@@ -21,6 +21,10 @@ export class VaccinationService {
     .pipe(catchError(this.errorHandler));
   }
 
+  getAllLocation():Observable<Array<Location>> {
+    return this.http.get<Array<Location>>(`${this.api}/locations`).pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
   remove(id: number):Observable<any> {
     return this.http.delete(`${this.api}/vaccinations/${id}`).pipe(retry(3))
       .pipe(catchError(this.errorHandler));

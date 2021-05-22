@@ -21,6 +21,9 @@ export class VaccinationFormComponent implements OnInit {
   constructor(private fb:FormBuilder, private bs:VaccinationService, private route: ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
+
+    this.bs.getAllLocation().subscribe(res => (this.locations = res));
+
     const id = this.route.snapshot.params["id"];
     if(id){
       this.isUpdatingVaccination = true;

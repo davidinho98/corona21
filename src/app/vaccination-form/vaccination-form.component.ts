@@ -69,19 +69,19 @@ export class VaccinationFormComponent implements OnInit {
     console.log(this.vaccinationForm.value);
     /*this.vaccinationForm.value.location = this.vaccinationForm.value.location.filter(
     )*/
-    const Vaccination:Vaccination = VaccinationFactory.fromObject(this.vaccinationForm.value);
+    const newVaccination:Vaccination = VaccinationFactory.fromObject(this.vaccinationForm.value);
   
   //just a hack
   //updatedVaccination.location = this.vaccination.location
 
   if (this.isUpdatingVaccination){
-    this.bs.update(this.vaccination).subscribe(res => {
-      this.router.navigate(["../../vaccinations", this.vaccination.id],
+    this.bs.update(newVaccination).subscribe(res => {
+      this.router.navigate(["../../vaccinations",newVaccination.id],
       {relativeTo:this.route});
     });
   } else {
-    this.bs.create(this.vaccination).subscribe(res => {
-      this.router.navigate(["../../vaccinations"],{relativeTo:this.route});
+    this.bs.create(newVaccination).subscribe(res => {
+      this.router.navigate(["../vaccinations"],{relativeTo:this.route});
     });
   }
   }

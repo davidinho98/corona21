@@ -7,6 +7,7 @@ import { VaccinationListComponent } from './vaccination-list/vaccination-list.co
 import { VaccinationListItemComponent } from './vaccination-list-item/vaccination-list-item.component';
 import { VaccinationDetailsComponent } from './vaccination-details/vaccination-details.component';
 import { VaccinationService } from './shared/vaccination.service';
+import { LocationService } from './shared/location.service';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,6 +18,6 @@ import { VaccinationFormComponent } from './vaccination-form/vaccination-form.co
   imports:[ BrowserModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule ],
   declarations: [ AppComponent, VaccinationListComponent, VaccinationListItemComponent, VaccinationDetailsComponent, HomeComponent, SearchComponent, VaccinationFormComponent ],
   bootstrap: [ AppComponent ],
-  providers: [VaccinationService]
+  providers: [VaccinationService, LocationService]
 })
 export class AppModule { }

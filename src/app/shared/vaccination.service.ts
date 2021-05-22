@@ -21,11 +21,6 @@ export class VaccinationService {
     .pipe(catchError(this.errorHandler));
   }
 
-// Eventuell in eigenes Service für location noch auslagern.
-  getAllLocation():Observable<Array<Location>> {
-    return this.http.get<Array<Location>>(`${this.api}/locations`).pipe(retry(3)).pipe(catchError(this.errorHandler));
-  }
-
   remove(id: number):Observable<any> {
     return this.http.delete(`${this.api}/vaccinations/${id}`).pipe(retry(3))
       .pipe(catchError(this.errorHandler));
@@ -53,5 +48,5 @@ export class VaccinationService {
   private errorHandler(error:Error | any){
     return throwError(error);
   }
-
+  
 }

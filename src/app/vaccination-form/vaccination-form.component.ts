@@ -4,10 +4,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Vaccination, Location } from '../shared/location';
 import { VaccinationFactory } from '../shared/vaccination-factory';
 import { VaccinationService } from '../shared/vaccination.service';
+import { LocationService } from '../shared/location.service';
 import { VaccinationFormErrorMessages } from './vaccination-form-error-messages';
 
 @Component({
-  selector: 'app-vaccination-form',
+  selector: 'bs-vaccination-form',
   templateUrl: './vaccination-form.component.html'
 })
 export class VaccinationFormComponent implements OnInit {
@@ -19,16 +20,16 @@ export class VaccinationFormComponent implements OnInit {
   locations: Location[];
   updateLocation: number;
 
-  constructor(private fb:FormBuilder, private bs:VaccinationService, private route: ActivatedRoute, private router:Router) { }
+  constructor(private fb:FormBuilder, private vs:VaccinationService, private ls:LocationService, private route: ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
 
-    this.bs.getAllLocation().subscribe(res => (this.locations = res));
+    this.ls.getAllLocation().subscribe(res => (this.locations = res));
 
     const id = this.route.snapshot.params["id"];
     if(id){
       this.isUpdatingVaccination = true;
-      this.bs.getSingle(id).subscribe(vaccination =>{
+      this.vs.getSingle(id).subscribe(vaccination =>{
         this.vaccination = vaccination;
         this.initVaccination();
       });
@@ -75,12 +76,12 @@ export class VaccinationFormComponent implements OnInit {
   //updatedVaccination.location = this.vaccination.location
 
   if (this.isUpdatingVaccination){
-    this.bs.update(newVaccination).subscribe(res => {
+    this.vs.update(newVaccination).subscribe(res => {
       this.router.navigate(["../../vaccinations",newVaccination.id],
       {relativeTo:this.route});
     });
   } else {
-    this.bs.create(newVaccination).subscribe(res => {
+    this.vs.create(newVaccination).subscribe(res => {
       this.router.navigate(["../vaccinations"],{relativeTo:this.route});
     });
   }

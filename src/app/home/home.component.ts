@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private router:Router, private route:ActivatedRoute) {}
 
+  // nicht mehr relevant - erster Versuch, aber die Suche macht nur nach Ort Sinn.
   vaccinationSelected(vaccination:Vaccination){
     this.router.navigate(['../vaccinations',vaccination.id],{relativeTo:this.route})
   }

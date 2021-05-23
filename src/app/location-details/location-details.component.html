@@ -1,0 +1,21 @@
+<div class="item">
+  <div class="content">
+    <h1 class="header">Übersicht über Ihre Impfung am Standort {{location.place}}</h1>
+  <div class="info">
+    <p>Allgemeine Informationen zum Standort {{location.place}}:</p>
+    <table>
+      <p>- Bezirk: {{location.place}}</p>
+      <p>- Dazugehörige Postleitzahl: {{location.plz}}</p>
+      <p>- Straße und Hausnummer: {{location.street}}, {{location.streetnumber}}</p>
+    </table>
+  </div>
+  </div>
+</div>
+<br>
+
+<button [routerLink]="'/locations'" class="ui tiny red button">Zurüch zur Ansicht</button>
+
+<button *ngIf="authService.isLoggedIn()" class="ui tiny red labeled icon button" (click)="removeLocation()">
+  <i class="remove icon"></i>Ort löschen</button>
+<a *ngIf="authService.isLoggedIn()" class="ui tiny yellow labeled icon button"[routerLink]="['../../admin',
+location?.id]"><i class="write icon"></i>Ort bearbeiten</a>  

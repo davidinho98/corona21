@@ -19,12 +19,15 @@ import { TokenInterceptorService } from './shared/token-interceptor.service';
 import { JwtInterceptorService } from './shared/jwt.interceptor.service';
 import { registerLocaleData } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
+import { LocationListComponent } from './location-list/location-list.component';
+import { LocationListItemComponent } from './location-list-item/location-list-item.component';
+import { LocationDetailsComponent } from './location-details/location-details.component';
 
 registerLocaleData(localeDe);
 
 @NgModule({
   imports:[ BrowserModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule ],
-  declarations: [ AppComponent, VaccinationListComponent, VaccinationListItemComponent, VaccinationDetailsComponent, HomeComponent, SearchComponent, VaccinationFormComponent, LoginComponent ],
+  declarations: [ AppComponent, VaccinationListComponent, VaccinationListItemComponent, VaccinationDetailsComponent, HomeComponent, SearchComponent, VaccinationFormComponent, LoginComponent, LocationListComponent, LocationListItemComponent, LocationDetailsComponent ],
   bootstrap: [ AppComponent ],
   providers: [VaccinationService, LocationService, AuthenticationService,
   {

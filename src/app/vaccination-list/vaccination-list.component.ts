@@ -10,7 +10,7 @@ export class VaccinationListComponent implements OnInit {
 
   @Output() showDetailsEvent = new EventEmitter<Vaccination>();
 
-  constructor(private bs:VaccinationService) { }
+  constructor(private vs:VaccinationService) { }
 
   showDetails(vaccination:Vaccination){
       this.showDetailsEvent.emit(vaccination);
@@ -19,6 +19,6 @@ export class VaccinationListComponent implements OnInit {
   vaccinations: Vaccination[];
 
   ngOnInit() {
-    this.bs.getAll().subscribe(res => this.vaccinations = res);
+    this.vs.getAll().subscribe(res => this.vaccinations = res);
   }
 }

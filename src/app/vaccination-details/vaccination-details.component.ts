@@ -12,17 +12,17 @@ import { VaccinationService } from '../shared/vaccination.service';
 export class VaccinationDetailsComponent implements OnInit {
   vaccination : Vaccination = VaccinationFactory.empty();
 
-  constructor(private bs: VaccinationService, private route:ActivatedRoute,
+  constructor(private vs: VaccinationService, private route:ActivatedRoute,
   private router:Router, public authService:AuthenticationService) { }
 
   ngOnInit() {
     const params = this.route.snapshot.params;
-    this.bs.getSingle(+params['id']).subscribe(res => this.vaccination = res);
+    this.vs.getSingle(+params['id']).subscribe(res => this.vaccination = res);
   }
 
   removeVaccination(){
     if(confirm("Wollen Sie die Impfung wirklich löschen?")){
-      this.bs.remove(this.vaccination.id).subscribe(
+      this.vs.remove(this.vaccination.id).subscribe(
         res => {
           this.router.navigate(['../'],{relativeTo:this.route});
         }

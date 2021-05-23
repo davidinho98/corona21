@@ -21,7 +21,7 @@ export const VaccinationFormErrorMessages = [
   new ErrorMessage(
     'end', 'required', 'Bitte Endzeit der Impfung angeben.'),
 
-  /*new ErrorMessage(
-    'location', 'required', 'Bitte einen Ort für die Impfung auswählen.')*/
+  new ErrorMessage(
+    'location', 'required', 'Bitte einen Ort für die Impfung auswählen.')
 
 ];

@@ -71,6 +71,10 @@ export class VaccinationFormComponent implements OnInit {
     /*this.vaccinationForm.value.location = this.vaccinationForm.value.location.filter(
     )*/
     const newVaccination:Vaccination = VaccinationFactory.fromObject(this.vaccinationForm.value);
+
+    newVaccination.date = this.vaccinationForm.value.date;
+    newVaccination.start = this.vaccinationForm.value.start;
+    newVaccination.end = this.vaccinationForm.value.end;
   
   //just a hack
   //updatedVaccination.location = this.vaccination.location

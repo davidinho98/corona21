@@ -23,6 +23,7 @@ export class LocationFactory {
       rawLocation.street,
       rawLocation.streetnumber,
       rawLocation.info
+
     );
   }
 

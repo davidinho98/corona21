@@ -40,7 +40,7 @@ export class LocationService {
 
   //Array gehört weg nach dem .get
   getAllSearch(searchTerm: string):Observable<Array<Location>> {
-    return this.http.get<Array<Location>>(`${this.api}/locations/search/${searchTerm}`)
+    return this.http.get<Location>(`${this.api}/locations/search/${searchTerm}`)
      .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 

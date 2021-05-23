@@ -1,3 +1,4 @@
+<!--
 <div class="ui search"  [ngClass]="{ loading: isLoading }">
  <div class="ui icon input">
    <input (keyup)="keyup.emit(searchTerm.value)" #searchTerm class="prompt" type="text" placeholder="Suche...">
@@ -9,6 +10,22 @@
    class="result" *ngFor="let vaccination of foundVaccinations">
     <div class="content">
       <div class="id" >{{ vaccination.id }}</div>
+    </div>
+   </a>
+ </div>
+</div>
+-->
+<div class="ui search"  [ngClass]="{ loading: isLoading }">
+ <div class="ui icon input">
+   <input (keyup)="keyup.emit(searchTerm.value)" #searchTerm class="prompt" type="text" placeholder="Suche...">
+   <i class="search icon"></i>
+ </div>
+ <div class="results transition" [ngClass]="{ visible: foundLocations.length }">
+
+   <a href (click)="locationSelected.emit(location); false"
+   class="result" *ngFor="let location of foundLocations">
+    <div class="content">
+      <div class="plz" >{{ location.plz }}</div>
     </div>
    </a>
  </div>

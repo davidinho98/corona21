@@ -9,22 +9,22 @@
 
 <div class="field">
     <label>Bezirk</label>
-    <input type="string" formControlName="place" />
+    <input type="text" formControlName="place" />
 </div>
 
 <div class="field">
     <label>Straße</label>
-    <input  type="string" formControlName="street" />
+    <input  type="text" formControlName="street" />
 </div>
 
 <div class="field">
     <label>Straßennummer</label>
-    <input  type="number" formControlName="streetnumber" />
+    <input min="0" type="number" formControlName="streetnumber" />
 </div>
 
 <div class="field">
     <label>Information</label>
-    <input  type="string" formControlName="info" />
+    <input  type="text" formControlName="info" />
 </div>
 
 <button *ngIf="isUpdatingLocation" type="submit" class="ui button"

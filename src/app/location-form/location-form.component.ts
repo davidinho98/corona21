@@ -5,8 +5,8 @@ import { Vaccination, Location } from '../shared/location';
 import { VaccinationFactory } from '../shared/vaccination-factory';
 import { VaccinationService } from '../shared/vaccination.service';
 import { LocationService } from '../shared/location.service';
-import { LocationFormErrorMessages } from './location-form-error-messages';
 import { LocationFactory } from '../shared/location-factory';
+import { LocationFormErrorMessages } from './location-form-error-messages';
 
 @Component({
   selector: 'bs-location-form',
@@ -21,11 +21,9 @@ export class LocationFormComponent implements OnInit {
   //locations: Location[];
   //updateLocation: number;
 
-  constructor(private fb:FormBuilder, private vs:VaccinationService, private ls:LocationService, private route: ActivatedRoute, private router:Router) { }
+  constructor(private fb:FormBuilder, private ls:LocationService, private route: ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
-
-    //this.ls.getAllLocation().subscribe(res => (this.locations = res));
 
     const id = this.route.snapshot.params["id"];
     if(id){
@@ -40,7 +38,6 @@ export class LocationFormComponent implements OnInit {
 
   initVaccination(){
       //Formular bauen
-      //this.vaccination.location_id = this.updateLocation;
       this.locationForm = this.fb.group({
         id: this.location.id,
         plz: this.location.plz,
@@ -67,11 +64,7 @@ export class LocationFormComponent implements OnInit {
 
   submitForm(){
     console.log(this.locationForm.value);
-    /*this.vaccinationForm.value.location = this.vaccinationForm.value.location.filter(
-    )*/
     const newLocation:Location = LocationFactory.fromObject(this.locationForm.value);
-  
-  //just a hack
 
   if (this.isUpdatingLocation){
     this.ls.update(newLocation).subscribe(res => {

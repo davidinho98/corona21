@@ -7,21 +7,18 @@ export class ErrorMessage {
 }
 export const LocationFormErrorMessages = [
   new ErrorMessage(
-    'error', 'required', 'Wert'
+    'plz', 'required', 'Bitte eine Postleitzahl angeben.'
   ),
   new ErrorMessage(
-    'amount', 'min', 'Achten Sie bei der Eingabe bitte auf eine positive Mindestanzahl.'
+    'plz', 'min', 'Achten Sie bei der Eingabe bitte auf eine positive Mindestanzahl.'
   ),
   new ErrorMessage(
-    'date', 'required', 'Wählen Sie bitte ein Datum für die Impfung aus.'),
+    'place', 'required', 'Bitte einen Bezirk angeben.'
+  ),
+  new ErrorMessage(
+    'street', 'required', 'Bitte eine Straße angben.'),
 
   new ErrorMessage(
-    'start', 'required', 'Bitte Startzeit der Impfung angeben.'),
-
-  new ErrorMessage(
-    'end', 'required', 'Bitte Endzeit der Impfung angeben.'),
-
-  new ErrorMessage(
-    'location', 'required', 'Bitte einen Ort für die Impfung auswählen.')
+    'streetnumber', 'required', 'Bitte die Straßennummer angeben.')
 
 ];

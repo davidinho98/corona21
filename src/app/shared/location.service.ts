@@ -28,4 +28,32 @@ export class LocationService {
       .pipe(catchError(this.errorHandler));
   }
 
+  getSingle(id: number):Observable<Location> {
+    return this.http.get<Location>(`${this.api}/locations/${id}`).pipe(retry(3))
+    .pipe(catchError(this.errorHandler));
+  }
+
+  remove(id: number):Observable<any> {
+    return this.http.delete(`${this.api}/locations/${id}`).pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
+
+  //Array gehört weg nach dem .get
+  getAllSearch(searchTerm: string):Observable<Array<Location>> {
+    return this.http.get<Array<Location>>(`${this.api}/locations/search/${searchTerm}`)
+     .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
+  create(location: Location):Observable<any> {
+    return this.http.post(`${this.api}/location`, location)
+      .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
+  update(location: Location):Observable<any> {
+    return this.http
+      .put(`${this.api}/locations/${location.id}`, location)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
+
 }

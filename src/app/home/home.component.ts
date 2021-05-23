@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Vaccination } from '../shared/location';
+import { Vaccination, Location } from '../shared/location';
 
 @Component({
   selector: 'bs-home',
@@ -12,6 +12,10 @@ export class HomeComponent implements OnInit {
 
   vaccinationSelected(vaccination:Vaccination){
     this.router.navigate(['../vaccinations',vaccination.id],{relativeTo:this.route})
+  }
+
+  locationSelected(location: Location){
+    this.router.navigate(['../locations', location.id], {relativeTo:this.route});
   }
 
   ngOnInit() {

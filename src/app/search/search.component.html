@@ -25,7 +25,8 @@
    <a href (click)="locationSelected.emit(location); false"
    class="result" *ngFor="let location of foundLocations">
     <div class="content">
-      <div class="plz" >{{ location.plz }}</div>
+      <div class="plz" >{{ location.plz }}, {{ location.place }} in</div>
+      <div class="infos">der {{ location.street }}, {{location.streetnumber}}</div>
     </div>
    </a>
  </div>

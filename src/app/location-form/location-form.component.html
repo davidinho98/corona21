@@ -1,0 +1,36 @@
+<h1>Ort hinzufügen</h1>
+<form class="ui large form" [formGroup]="locationForm" (ngSubmit)="submitForm()">
+
+<div class = "field">
+  <label>PLZ</label>
+  <input min="0" type="number" formControlName="plz">
+  <div *ngIf="errors.plz" class="ui negative message">{{errors.plz}}</div>
+</div>
+
+<div class="field">
+    <label>Bezirk</label>
+    <input type="string" formControlName="place" />
+</div>
+
+<div class="field">
+    <label>Straße</label>
+    <input  type="string" formControlName="street" />
+</div>
+
+<div class="field">
+    <label>Straßennummer</label>
+    <input  type="number" formControlName="streetnumber" />
+</div>
+
+<div class="field">
+    <label>Information</label>
+    <input  type="string" formControlName="info" />
+</div>
+
+<button *ngIf="isUpdatingLocation" type="submit" class="ui button"
+    [disabled]="locationForm.invalid">Ort ändern</button>
+
+<button *ngIf="!isUpdatingLocation" type="submit" class="ui button"
+    [disabled]="locationForm.invalid">Ort speichern</button>
+
+</form>

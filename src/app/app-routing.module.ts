@@ -10,6 +10,7 @@ import { CanNavigateToLocationGuard } from './shared/can-navigate-to-location.gu
 import { VaccinationDetailsComponent } from './vaccination-details/vaccination-details.component';
 import { VaccinationFormComponent } from './vaccination-form/vaccination-form.component';
 import { VaccinationListComponent } from './vaccination-list/vaccination-list.component';
+import { UserFormComponent } from './user-form/user-form.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'home', pathMatch:"full"},

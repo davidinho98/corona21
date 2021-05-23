@@ -23,14 +23,16 @@ import { LocationListComponent } from './location-list/location-list.component';
 import { LocationListItemComponent } from './location-list-item/location-list-item.component';
 import { LocationDetailsComponent } from './location-details/location-details.component';
 import { LocationFormComponent } from './location-form/location-form.component';
+import { UserService } from './shared/user.service';
+import { UserFormComponent } from './user-form/user-form.component';
 
 registerLocaleData(localeDe);
 
 @NgModule({
   imports:[ BrowserModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule ],
-  declarations: [ AppComponent, VaccinationListComponent, VaccinationListItemComponent, VaccinationDetailsComponent, HomeComponent, SearchComponent, VaccinationFormComponent, LoginComponent, LocationListComponent, LocationListItemComponent, LocationDetailsComponent, LocationFormComponent ],
+  declarations: [ AppComponent, VaccinationListComponent, VaccinationListItemComponent, VaccinationDetailsComponent, HomeComponent, SearchComponent, VaccinationFormComponent, LoginComponent, LocationListComponent, LocationListItemComponent, LocationDetailsComponent, LocationFormComponent, UserFormComponent ],
   bootstrap: [ AppComponent ],
-  providers: [VaccinationService, LocationService, AuthenticationService,
+  providers: [VaccinationService, LocationService, AuthenticationService, UserService,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,

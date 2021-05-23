@@ -1,0 +1,46 @@
+<h1>User hinzufügen</h1>
+<form class="ui large form" [formGroup]="userForm" (ngSubmit)="submitForm()">
+
+<div class="field">
+    <label>Vorname</label>
+    <input type="text" formControlName="firstName" />
+</div>
+
+<div class="field">
+    <label>Nachname</label>
+    <input type="text" formControlName="lastName" />
+</div>
+
+<!--
+<div class="field">
+    <label>Passwort</label>
+    <input type="text" formControlName="password" />
+</div>-->
+
+<div class="field">
+    <label>SVNR</label>
+    <input  type="number" formControlName="svnr" />
+</div>
+
+<div class="field">
+    <label>Geburtsdatum</label>
+    <input type="date" formControlName="bdate" />
+</div>
+
+<div class="field">
+    <label>E-Mail</label>
+    <input type="email" formControlName="email" />
+</div>
+
+<div class="field">
+    <label>Telefonnummer</label>
+    <input  type="number" formControlName="phone" />
+</div>
+
+<button *ngIf="isUpdatingUser" type="submit" class="ui button"
+    [disabled]="userForm.invalid">User ändern</button>
+
+<button *ngIf="!isUpdatingUser" type="submit" class="ui button"
+    [disabled]="userForm.invalid">User speichern</button>
+
+</form>

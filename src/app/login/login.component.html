@@ -1,3 +1,4 @@
+<div class="ui container">
 <div *ngIf="!isLoggedIn()">
   <h1>Login</h1>
   <form class="ui large form" [formGroup]="loginForm"
@@ -38,4 +39,5 @@
   <p>Herzlich Willkommen auf der Impfplattform, {{firstName}} {{lastName}}.</p>
   <button type="button" class="ui button"
   (click)="logout()">Logout</button>
+</div>
 </div>

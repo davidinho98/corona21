@@ -1,6 +1,7 @@
+<div class="ui container">
 <div class="item">
   <div class="content">
-    <h1 class="header">Übersicht über Ihre Impfung am Standort {{vaccination.location.place}}</h1>
+    <h1 class="header">Übersicht über die Impfung am Standort {{vaccination.location.place}}</h1>
   <div class="info">
     <p>Allgemeine Informationen zum Standort {{vaccination.location.place}}:</p>
     <table>
@@ -15,6 +16,7 @@
     <table>
       <p>- Start: {{vaccination.start}}</p>
       <p>- Ende: {{vaccination.end}}</p>
+      <p>- Anzahl angemeldeter Personen: X / {{vaccination.amount}}</p>
     </table>
   </div>
   </div>
@@ -46,7 +48,7 @@
   </table>
   </div>
 </div>
-<br>
+
 
 <button [routerLink]="'/vaccinations'" class="ui tiny red button">Zurüch zur Ansicht</button>
 
@@ -54,3 +56,5 @@
   <i class="remove icon"></i>Impfung löschen</button>
 <a *ngIf="authService.isLoggedIn()" class="ui tiny yellow labeled icon button"[routerLink]="['../../admin',
 vaccination?.id]"><i class="write icon"></i>Impfung bearbeiten</a>  
+
+</div>

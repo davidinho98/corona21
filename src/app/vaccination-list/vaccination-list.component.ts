@@ -4,7 +4,8 @@ import { VaccinationService } from '../shared/vaccination.service';
 
 @Component({
   selector: 'bs-vaccination-list',
-  templateUrl: './vaccination-list.component.html'
+  templateUrl: './vaccination-list.component.html',
+  styleUrls: [ './vaccination-list.component.css' ] 
 })
 export class VaccinationListComponent implements OnInit {
 

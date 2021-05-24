@@ -1,5 +1,12 @@
 <div class="content">
-    <div class="header">{{ vaccination.id }}</div>
-    <div class="description"> {{ vaccination.date }}</div> 
-    <div class="amount">{{vaccination.amount}}</div>
+    <p><i class="fa fa-caret-right"></i> Impfung am Standort {{vaccination.location.place}}:</p>
+    <div class="description">Impfdatum: {{ vaccination.date | date:'EEEE dd MMMM, yyyy' }}</div> 
+    <div class="amount">Anzahl an bereits belegten Plätzen: X/{{vaccination.amount}}</div>
+    <br>
+    <p>Um genaueres zu Erfahren wählen Sie den Button:</p>
+    <button class="ui tiny blue button">Zu den Details</button>
+    <br>
+    <br>
   </div>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">

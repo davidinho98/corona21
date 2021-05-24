@@ -7,7 +7,8 @@ import { VaccinationService } from '../shared/vaccination.service';
 
 @Component({
   selector: 'bs-vaccination-details',
-  templateUrl: './vaccination-details.component.html'
+  templateUrl: './vaccination-details.component.html',
+  styleUrls: [ './vaccination-details.component.css' ]
 })
 export class VaccinationDetailsComponent implements OnInit {
   vaccination : Vaccination = VaccinationFactory.empty();

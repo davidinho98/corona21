@@ -46,7 +46,7 @@ export class VaccinationDetailsComponent implements OnInit {
     }
   }
 
-  fetchData() {
+  forData() {
     const params = this.route.snapshot.params;
     console.log(+params['id']);
     this.vs.getSingle(+params['id']).subscribe(l => (this.vaccination = l));

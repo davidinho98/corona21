@@ -40,7 +40,7 @@ export class AuthenticationService {
       let token = localStorage.getItem("token");
       const decodedToken = jwt_decode(token) as Token;
       let expirationDate: Date = new Date(0);
-      console.log(expirationDate);
+      //console.log(expirationDate);
       expirationDate.setUTCSeconds(decodedToken.exp);
       if(expirationDate < new Date()){
         console.log("token expired");

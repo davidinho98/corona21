@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
       password:["",Validators.required]
     });
     this.getUserFirst();
+    console.log (this.getUserFirst());
     this.getUserLast();
   }
 

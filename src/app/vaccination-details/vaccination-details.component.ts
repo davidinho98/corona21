@@ -41,16 +41,11 @@ export class VaccinationDetailsComponent implements OnInit {
     }
   }
 
- /* removePerson(){
+  removePerson(id){
     if(confirm("Wollen Sie die Person wirklich löschen?")){
-      this.vs.remove(this.user.id).subscribe(
-        res => {
-          this.router.navigate(['../'],{relativeTo:this.route});
-        }
-      );
+      this.us.remove(id).subscribe(res => this.forAdmin());
     }
-  }*/
-
+  }
 
   forAdmin() {
     const params = this.route.snapshot.params;

@@ -1,8 +1,34 @@
+<div class="container-fluid nopadding">
+<div class="banner bg-img ooe-impft">
+	<div class="textbox">        	
+        <div class="microsite-v-ausrichtung"> 
+            <p class="ueberschrift">Corona-Schutzimpfung</p>
+            <p class="anreisser">Gemeinsam gegen COVID-19</p>
+	    </div>
+	</div>   
+</div>
+</div>
+
 <div class="ui container">
-  <h1>Home</h1>
-  <p>Herzlich Willkommen zur Impfanmeldung</p>
-  <a routerLink="../vaccinations" class="ui red button">Impfungen ansehen</a>
+  <p class="big">Die Möglichkeit, sich impfen zu lassen, gibt es in ganz Österreich. Die Abläufe sind allerdings von Bundesland zu Bundesland verschieden und werden laufend weiterentwickelt. Wir aktualisieren die Informationen regelmäßig für Sie.</p>
+  <p class="big">
+  Bei individuellen Fragen zur Corona-Schutzimpfung (Unverträglichkeiten, Allergien, Vorerkrankungen, etc.) wenden Sie sich bitte vertrauensvoll an Ihre betreuende Ärztin bzw. Ihren betreuenden Arzt.</p>
+  </div>
+  <br>
+  <br>
+  <div class="ui container">
+    <p class="little">Klicken Sie auf den Button, wenn Sie sich die nächsten anstehenden Impfungen ansehen möchten.</p>
+  <a routerLink="../vaccinations" class="ui tiny red button">Impfungen ansehen</a>
+  <br>
+  <br>
+  <br>
+    <p class="little">Wenn Sie möchten können Sie auch nach einem Ort suchen. Geben Sie dafür einfach ein Schlagwort, PLZ, oder ähnliches in das Suchfeld ein.</p>
   <!--<bs-search class="column" (vaccinationSelected)="vaccinationSelected($event)"></bs-search>-->
   <bs-search class="column" (locationSelected)="locationSelected($event)"></bs-search>
+  <br>
+  <br>
+    <p class="little">Um sich für eine Impfung zu registrieren melden Sie sich bitte über das Login Formular im Menü mit Ihrer E-Mail und Passwort an.</p>
+    <a routerLink="../login" class="ui tiny grey button">Zum Login</a>
+  </div>
 
-</div>
+

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../shared/authentication.service';
+import { User } from '../shared/user';
+import { UserFactory } from '../shared/user-factory';
+import { UserService } from '../shared/user.service';
 
 interface Response {
   access_token: string
@@ -14,15 +17,32 @@ interface Response {
 export class LoginComponent implements OnInit {
 
   loginForm : FormGroup;
+  firstName = '';
+  lastName = '';
 
   constructor(private fb:FormBuilder, 
-  private router:Router, private authService:AuthenticationService) { }
+  private router:Router, private authService:AuthenticationService, private us:UserService) { }
+
+  //Nach der Anmeldung soll der Vor und Nachname gezeigt werden:
+  getUserFirst(){
+    if (this.isLoggedIn()) {
+      this.firstName = localStorage.getItem("firstName");
+    }
+  }
+
+  getUserLast(){
+    if (this.isLoggedIn()) {
+      this.lastName = localStorage.getItem("lastName");
+    }
+  }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
       username: ["",[Validators.required, Validators.email]],
       password:["",Validators.required]
     });
+    this.getUserFirst();
+    this.getUserLast();
   }
 
   login(){

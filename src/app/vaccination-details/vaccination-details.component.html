@@ -17,7 +17,10 @@
       <p>- Ende: {{vaccination.end}}</p>
     </table>
   </div>
+  </div>
   <br>
+
+  <div *ngIf="authService.isLoggedIn()" class="content">
   <p>Allgemeine Informationen der angemeldeten Personen:</p>
   <table class="ui six column table">
         <thead>
@@ -42,7 +45,6 @@
         </tbody>
   </table>
   </div>
-
 </div>
 <br>
 

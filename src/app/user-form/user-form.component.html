@@ -1,5 +1,5 @@
 <div class="ui container">
-<h1>User hinzufügen</h1>
+<h1>Account erstellen</h1>
 <form class="ui large form" [formGroup]="userForm" (ngSubmit)="submitForm()">
 
 <div class="field">
@@ -37,12 +37,12 @@
     <label>Telefonnummer</label>
     <input  type="number" formControlName="phone" />
 </div>
-
+<!--
 <button *ngIf="isUpdatingUser" type="submit" class="ui button"
-    [disabled]="userForm.invalid">User ändern</button>
+    [disabled]="userForm.invalid">User ändern</button>-->
 
 <button *ngIf="!isUpdatingUser" type="submit" class="ui button"
-    [disabled]="userForm.invalid">User speichern</button>
+    [disabled]="userForm.invalid">Registrierung abschließen</button>
 
 </form>
 </div>

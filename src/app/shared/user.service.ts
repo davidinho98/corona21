@@ -18,7 +18,7 @@ export class UserService {
   }
 
   getSingle(id: number):Observable<User> {
-    return this.http.get<User>(`${this.api}/users/${id}`).pipe(retry(3))
+    return this.http.get<User>(`${this.api}/users/search/${id}`).pipe(retry(3))
     .pipe(catchError(this.errorHandler));
   }
 

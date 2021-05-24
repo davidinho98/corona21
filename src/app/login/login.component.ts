@@ -18,34 +18,34 @@ interface Response {
 export class LoginComponent implements OnInit {
 
   loginForm : FormGroup;
-  //firstName = '';
-  //lastName = '';
+  firstName = '';
+  lastName = '';
 
   constructor(private fb:FormBuilder, 
   private router:Router, private authService:AuthenticationService, private us:UserService) { }
 
   // Hat leider nicht funktioniert
   //Nach der Anmeldung soll der Vor und Nachname gezeigt werden:
-  /*getUserFirst(){
+  getUserFirst(){
     if (this.isLoggedIn()) {
       this.firstName = localStorage.getItem("firstName");
     }
-  }*/
+  }
 
-  /*getUserLast(){
+  getUserLast(){
     if (this.isLoggedIn()) {
       this.lastName = localStorage.getItem("lastName");
     }
-  }*/
+  }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
       username: ["",[Validators.required, Validators.email]],
       password:["",Validators.required]
     });
-    //this.getUserFirst();
-    //console.log (this.getUserFirst());
-    //this.getUserLast();
+    this.getUserFirst();
+    console.log (this.getUserFirst());
+    this.getUserLast();
   }
 
   login(){

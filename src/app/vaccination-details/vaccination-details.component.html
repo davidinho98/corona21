@@ -16,7 +16,7 @@
     <table>
       <p>- Start: {{vaccination.start}}</p>
       <p>- Ende: {{vaccination.end}}</p>
-      <p>- Anzahl angemeldeter Personen: X / {{vaccination.amount}}</p>
+      <p>- Anzahl angemeldeter Personen: {{vaccination.users.length}} / {{vaccination.amount}}</p>
     </table>
   </div>
   </div>
@@ -32,7 +32,7 @@
             <th>SVNR</th>
             <th>EMAIL</th>
             <th>Telefonnummer</th>
-            <th>Geburtsdaum</th>
+            <th>Geburtsdatum</th>
           </tr>
         </thead>
         <tbody>
@@ -43,6 +43,7 @@
             <td>{{user.email}}</td>
             <td>{{user.phone}}</td>
             <td>{{user.bdate}}</td>
+            <!--<td><button (click)="removePerson()">Person löschen</button></td>-->
           </tr>
         </tbody>
   </table>
@@ -51,15 +52,17 @@
 
 
 <button [routerLink]="'/vaccinations'" class="ui tiny red button">Zurüch zur Ansicht</button>
+
 <button *ngIf="authService.isLoggedIn()" class="ui tiny green icon button" [routerLink]="['../../users',vaccination?.id]">Person anmelden</button>
+<!--
 <button *ngIf="authService.isLoggedIn()" class="ui tiny red labeled icon button" (click)="removeVaccination()">
   <i class="remove icon"></i>Impfung löschen</button>
 <a *ngIf="authService.isLoggedIn()" class="ui tiny yellow labeled icon button"[routerLink]="['../../admin',
-vaccination?.id]"><i class="write icon"></i>Impfung bearbeiten</a> 
-<!--
-<button *ngIf="activeUser.admin == false && authService.isLoggedIn()" class="ui tiny red labeled icon button" (click)="removeVaccination()">
+vaccination?.id]"><i class="write icon"></i>Impfung bearbeiten</a> --> 
+
+<button *ngIf="activeUser?.admin == true && authService.isLoggedIn()" class="ui tiny red labeled icon button" (click)="removeVaccination()">
   <i class="remove icon"></i>Impfung löschen</button>
-<a *ngIf="activeUser.admin == true && authService.isLoggedIn()" class="ui tiny yellow labeled icon button"[routerLink]="['../../admin',
-vaccination?.id]"><i class="write icon"></i>Impfung bearbeiten</a>-->  
+<a *ngIf="activeUser?.admin == true && authService.isLoggedIn()" class="ui tiny yellow labeled icon button"[routerLink]="['../../admin',
+vaccination?.id]"><i class="write icon"></i>Impfung bearbeiten</a> 
 
 </div>

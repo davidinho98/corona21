@@ -44,7 +44,7 @@ export class UserFormComponent implements OnInit {
         id: this.user.id,
         firstName: this.user.firstName,
         lastName: this.user.lastName,
-        password: this.user.password,
+        password: '$2y$10$lYBZzZLcxTNLWWK/xPyeXe/peBdh1.7olNY.qrLkmNMHwXsj0sXVe',
         svnr: this.user.svnr,
         bdate: this.user.bdate,
         email: this.user.email,

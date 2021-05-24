@@ -4,6 +4,9 @@ import { AuthenticationService } from '../shared/authentication.service';
 import { Vaccination } from '../shared/vaccination';
 import { VaccinationFactory } from '../shared/vaccination-factory';
 import { VaccinationService } from '../shared/vaccination.service';
+import { User } from '../shared/user';
+import { UserFactory } from '../shared/user-factory';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'bs-vaccination-details',
@@ -12,13 +15,16 @@ import { VaccinationService } from '../shared/vaccination.service';
 })
 export class VaccinationDetailsComponent implements OnInit {
   vaccination : Vaccination = VaccinationFactory.empty();
+  //user: User = UserFactory.empty();
+  activeUser: User;
 
-  constructor(private vs: VaccinationService, private route:ActivatedRoute,
+  constructor(private vs: VaccinationService, private us: UserService, private route:ActivatedRoute,
   private router:Router, public authService:AuthenticationService) { }
 
   ngOnInit() {
     const params = this.route.snapshot.params;
     this.vs.getSingle(+params['id']).subscribe(res => this.vaccination = res);
+    
   }
 
   removeVaccination(){
@@ -29,6 +35,11 @@ export class VaccinationDetailsComponent implements OnInit {
         }
       );
     }
+  }
+
+  newUserToVaccination() {
+    //this.user.vaccination_id = this.vaccination.id;
+    //this.us.update(this.user).subscribe(res => {});
   }
 
 }

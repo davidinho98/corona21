@@ -5,7 +5,8 @@ import { Location } from "../shared/location";
 
 @Component({
   selector: 'bs-location-list',
-  templateUrl: './location-list.component.html'
+  templateUrl: './location-list.component.html',
+  styleUrls: [ './location-list.component.css' ]
 })
 export class LocationListComponent implements OnInit {
 

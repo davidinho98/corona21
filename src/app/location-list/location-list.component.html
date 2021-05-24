@@ -1,4 +1,5 @@
 <div class="ui container">
+  <p>Hier sehen Sie eine Übersicht über die möglichen Orte. Wählen Sie einen Ort aus, um genauere Informationen zu diesem zu erhalten.</p>
 <div class="ui middle aligned selection divided list">
   <a *ngFor="let location of locations" class="item bs-location-list-item" [location]="location" [routerLink]=[location.id]>
   </a>

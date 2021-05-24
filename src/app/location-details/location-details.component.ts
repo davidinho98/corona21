@@ -7,7 +7,8 @@ import { LocationService } from '../shared/location.service';
 
 @Component({
   selector: 'bs-location-details',
-  templateUrl: './location-details.component.html'
+  templateUrl: './location-details.component.html',
+  styleUrls: [ './location-details.component.css' ]
 })
 export class LocationDetailsComponent implements OnInit {
   location: Location = LocationFactory.empty();

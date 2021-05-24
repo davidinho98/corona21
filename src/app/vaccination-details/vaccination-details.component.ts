@@ -17,14 +17,9 @@ export class VaccinationDetailsComponent implements OnInit {
   vaccination : Vaccination = VaccinationFactory.empty();
   //user: User = UserFactory.empty();
   activeUser: User;
-  //@Output() showListEvent = new EventEmitter<any>();
 
   constructor(private vs: VaccinationService, private us: UserService, private route:ActivatedRoute,
   private router:Router, public authService:AuthenticationService) { }
-
-  //showLocationList() {
-    //this.showListEvent.emit();
-  //}
 
   isLoggedIn() {
     return this.authService.isLoggedIn();
@@ -33,7 +28,7 @@ export class VaccinationDetailsComponent implements OnInit {
   ngOnInit() {
     const params = this.route.snapshot.params;
     this.vs.getSingle(+params['id']).subscribe(res => this.vaccination = res);
-    this.forData();
+    this.forAdmin();
   }
 
   removeVaccination(){
@@ -57,9 +52,9 @@ export class VaccinationDetailsComponent implements OnInit {
   }*/
 
 
-  forData() {
+  forAdmin() {
     const params = this.route.snapshot.params;
-    console.log(+params['id']);
+    //console.log(+params['id']);
     this.vs.getSingle(+params['id']).subscribe(l => (this.vaccination = l));
     if (this.authService.isLoggedIn()) {
       this.us

@@ -22,7 +22,7 @@
   </div>
   <br>
 
-  <div *ngIf="authService.isLoggedIn()" class="content">
+  <div *ngIf="activeUser?.admin == true && authService.isLoggedIn()" class="content">
   <p>Allgemeine Informationen der angemeldeten Personen:</p>
   <table class="ui six column table">
         <thead>
@@ -53,7 +53,7 @@
 
 <button [routerLink]="'/vaccinations'" class="ui tiny red button">Zurüch zur Ansicht</button>
 
-<button *ngIf="authService.isLoggedIn()" class="ui tiny green icon button" [routerLink]="['../../users',vaccination?.id]">Person anmelden</button>
+<button *ngIf="authService.isLoggedIn()" class="ui tiny green icon button" [routerLink]="['../../users',vaccination?.id]">Hier Anmelden</button>
 <!--
 <button *ngIf="authService.isLoggedIn()" class="ui tiny red labeled icon button" (click)="removeVaccination()">
   <i class="remove icon"></i>Impfung löschen</button>

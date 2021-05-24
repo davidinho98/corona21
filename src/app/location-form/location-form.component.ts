@@ -10,7 +10,8 @@ import { LocationFormErrorMessages } from './location-form-error-messages';
 
 @Component({
   selector: 'bs-location-form',
-  templateUrl: './location-form.component.html'
+  templateUrl: './location-form.component.html',
+  styleUrls: [ './location-form.component.css' ]
 })
 export class LocationFormComponent implements OnInit {
 

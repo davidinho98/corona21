@@ -11,7 +11,8 @@ import { User } from '../shared/user';
 
 @Component({
   selector: 'bs-user-form',
-  templateUrl: './user-form.component.html'
+  templateUrl: './user-form.component.html',
+  styleUrls: [ './user-form.component.css' ]
 })
 export class UserFormComponent implements OnInit {
 

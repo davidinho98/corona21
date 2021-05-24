@@ -51,7 +51,7 @@
 
 
 <button [routerLink]="'/vaccinations'" class="ui tiny red button">Zurüch zur Ansicht</button>
-<button *ngIf="authService.isLoggedIn()" class="ui tiny green icon button" (click)="newUserToVaccination()">Für diese Impfung anmelden</button>
+<button *ngIf="authService.isLoggedIn()" class="ui tiny green icon button" [routerLink]="['../../users',vaccination?.id]">Person anmelden</button>
 <button *ngIf="authService.isLoggedIn()" class="ui tiny red labeled icon button" (click)="removeVaccination()">
   <i class="remove icon"></i>Impfung löschen</button>
 <a *ngIf="authService.isLoggedIn()" class="ui tiny yellow labeled icon button"[routerLink]="['../../admin',

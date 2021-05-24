@@ -17,9 +17,18 @@ export class VaccinationDetailsComponent implements OnInit {
   vaccination : Vaccination = VaccinationFactory.empty();
   //user: User = UserFactory.empty();
   activeUser: User;
+  //@Output() showListEvent = new EventEmitter<any>();
 
   constructor(private vs: VaccinationService, private us: UserService, private route:ActivatedRoute,
   private router:Router, public authService:AuthenticationService) { }
+
+  //showLocationList() {
+    //this.showListEvent.emit();
+  //}
+
+  isLoggedIn() {
+    return this.authService.isLoggedIn();
+  }
 
   ngOnInit() {
     const params = this.route.snapshot.params;
@@ -37,6 +46,18 @@ export class VaccinationDetailsComponent implements OnInit {
     }
   }
 
+  fetchData() {
+    const params = this.route.snapshot.params;
+    console.log(+params['id']);
+    this.vs.getSingle(+params['id']).subscribe(l => (this.vaccination = l));
+    if (this.authService.isLoggedIn()) {
+      this.us
+        .getSingle(localStorage.userId)
+        .subscribe(res => (this.activeUser = res));
+    }
+  }
+
+  //Alter Versuch;
   newUserToVaccination() {
     //this.user.vaccination_id = this.vaccination.id;
     //this.us.update(this.user).subscribe(res => {});

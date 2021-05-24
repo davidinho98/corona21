@@ -17,21 +17,21 @@ import { User } from '../shared/user';
 export class UserFormComponent implements OnInit {
 
   userForm: FormGroup;
-  user = UserFactory.empty();
+  user: User = UserFactory.empty();
   isUpdatingUser = false;
   errors:{[key:string]:string}={};
   //Zum hinzufügen der jeweiigen vaccination
-  //vaccination: Vaccination;
+  vaccination: Vaccination;
 
   constructor(private fb:FormBuilder, private vs:VaccinationService, private us:UserService, private route: ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
-
-    const id = this.route.snapshot.params["id"];
-    if(id){
+    
+  const id = this.route.snapshot.params['id'];
+    if (id) {
       this.isUpdatingUser = true;
-      this.vs.getSingle(id).subscribe(user =>{
-        //this.user = user;
+      this.us.getSingle(id).subscribe(user => {
+        this.user = user;
         this.initUser();
       });
     }
@@ -50,9 +50,9 @@ export class UserFormComponent implements OnInit {
         email: this.user.email,
         phone: this.user.phone,
         vaccinated: this.user.vaccinated,
-        //admin: this.user.admin,
-        //termin: this.user.termin,
-        //vaccination_id: +this.route.snapshot.params['vaccination_id']
+        admin: this.user.admin,
+        termin: this.user.termin,
+        vaccination_id: +this.route.snapshot.params['vaccination_id']
       });
       this.userForm.statusChanges.subscribe(()=>{
         this.updateErrorMessages();
@@ -79,12 +79,12 @@ export class UserFormComponent implements OnInit {
   
   if (this.isUpdatingUser){
     this.us.update(newUser).subscribe(res => {
-      this.router.navigate(["../../login"],
+      this.router.navigate(["../../vaccinations"],
       {relativeTo:this.route});
     });
   } else {
     this.us.create(newUser).subscribe(res => {
-      this.router.navigate(['../../login'], { relativeTo: this.route });
+      this.router.navigate(['../../vaccinations', this.route.snapshot.params['vaccination_id']], { relativeTo: this.route });
     });
   }
   }

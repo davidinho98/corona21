@@ -19,6 +19,7 @@ const routes: Routes = [
   {path:'vaccinations/:id', component:VaccinationDetailsComponent},
   {path:'locations', component:LocationListComponent},
   {path:'locations/:id', component:LocationDetailsComponent},
+  {path:'users', component:UserFormComponent},
   {path:'admin', component:VaccinationFormComponent, canActivate:[CanNavigateToAdminGuard]},
   {path:'admin/:id', component:VaccinationFormComponent},
   {path:'newlocations', component:LocationFormComponent, canActivate:[CanNavigateToLocationGuard]},

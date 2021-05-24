@@ -1,3 +1,4 @@
+<div class="ui container">
 <h1>User hinzufügen</h1>
 <form class="ui large form" [formGroup]="userForm" (ngSubmit)="submitForm()">
 
@@ -11,11 +12,11 @@
     <input type="text" formControlName="lastName" />
 </div>
 
-<!--
+
 <div class="field">
     <label>Passwort</label>
     <input type="text" formControlName="password" />
-</div>-->
+</div>
 
 <div class="field">
     <label>SVNR</label>
@@ -44,3 +45,4 @@
     [disabled]="userForm.invalid">User speichern</button>
 
 </form>
+</div>

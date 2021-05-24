@@ -1,7 +1,7 @@
 <div class="content">
     <p><i class="fa fa-caret-right"></i> Impfung am Standort {{vaccination.location.place}}:</p>
     <div class="description">Impfdatum: {{ vaccination.date | date:'EEEE dd MMMM, yyyy' }}</div> 
-    <div class="amount">Anzahl an bereits belegten Plätzen: X/{{vaccination.amount}}</div>
+    <div class="amount">Anzahl an bereits belegten Plätzen: {{vaccination.users.length}} / {{vaccination.amount}}</div>
     <br>
     <p>Um genaueres zu Erfahren wählen Sie den Button:</p>
     <button class="ui tiny blue button">Zu den Details</button>

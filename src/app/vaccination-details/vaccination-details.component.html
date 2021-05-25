@@ -50,7 +50,7 @@
             <td>{{user.email}}</td>
             <td>{{user.phone}}</td>
             <td>{{user.bdate}}</td>
-            <td><select formControlName="vaccinated" class="ui tiny selection dropdown" (change)="editUserVaccination($event, user)">
+            <td><select class="ui tiny selection dropdown" (change)="editUserVaccination($event, user)">
               <option value="true" [selected]="user?.vaccinated">Impfung erhalten</option>
               <option value="false" [selected]="!user?.vaccinated">Nicht erhalten</option>
                   </select>

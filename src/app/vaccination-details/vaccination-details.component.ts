@@ -15,7 +15,7 @@ import { UserService } from '../shared/user.service';
 })
 export class VaccinationDetailsComponent implements OnInit {
   vaccination : Vaccination = VaccinationFactory.empty();
-  //user: User = UserFactory.empty();
+  user: User = UserFactory.empty();
   activeUser: User;
 
   constructor(private vs: VaccinationService, private us: UserService, private route:ActivatedRoute,
@@ -56,6 +56,13 @@ export class VaccinationDetailsComponent implements OnInit {
         .getSingle(localStorage.userId)
         .subscribe(res => (this.activeUser = res));
     }
+  }
+
+  editUserVaccination(vac: Event, user) {
+    let Status = (<HTMLInputElement>vac.target).value;
+    this.user = user;
+    this.user.vaccinated = Boolean(JSON.parse(Status));
+    this.us.update(this.user).subscribe(res => {});
   }
 
   //Alter Versuch;

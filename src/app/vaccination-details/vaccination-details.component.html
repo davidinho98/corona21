@@ -33,6 +33,9 @@
             <th>EMAIL</th>
             <th>Telefonnummer</th>
             <th>Geburtsdatum</th>
+            <th>Impfungsinfo</th>
+            <th>Person löschen</th>
+            <th>Person bearbeiten</th>
           </tr>
         </thead>
         <tbody>
@@ -43,7 +46,13 @@
             <td>{{user.email}}</td>
             <td>{{user.phone}}</td>
             <td>{{user.bdate}}</td>
-            <td><button (click)="removePerson(user.id)">Person löschen</button></td>
+            <td><select formControlName="vaccinated" class="ui tiny selection dropdown" (change)="editUserVaccination($event, user)">
+              <option value="true" [selected]="user?.vaccinated">Impfung erhalten</option>
+              <option value="false" [selected]="!user?.vaccinated">Nicht erhalten</option>
+                  </select>
+            </td>
+            <td><button (click)="removePerson(user.id)">Löschen</button></td>
+            <td><button></button></td>
           </tr>
         </tbody>
   </table>

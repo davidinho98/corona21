@@ -19,6 +19,10 @@
       <p>- Anzahl angemeldeter Personen: {{vaccination.users.length}} / {{vaccination.amount}}</p>
     </table>
   </div>
+  <div *ngIf="checkParticipants()" class="ui warning message">
+    <i class="warning icon"></i>
+    Anmeldung nicht möglich, leider sind alle Plätze belegt.
+  </div>
   </div>
   <br>
 
@@ -35,11 +39,11 @@
             <th>Geburtsdatum</th>
             <th>Impfungsinfo</th>
             <th>Person löschen</th>
-            <th>Person bearbeiten</th>
+            <!--<th>Person bearbeiten</th>-->
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let user of vaccination.users; last as l">
+          <tr *ngFor="let user of vaccination?.users;">
             <td>{{user.firstName}}</td>
             <td>{{user.lastName}}</td>
             <td>{{user.svnr}}</td>
@@ -52,7 +56,7 @@
                   </select>
             </td>
             <td><button (click)="removePerson(user.id)">Löschen</button></td>
-            <td><button></button></td>
+            <!--<td><button (click)="editPerson(user.id)">Bearbeiten</button></td>-->
           </tr>
         </tbody>
   </table>
@@ -62,7 +66,7 @@
 
 <button [routerLink]="'/vaccinations'" class="ui tiny red button">Zurüch zur Ansicht</button>
 
-<button *ngIf="authService.isLoggedIn()" class="ui tiny green icon button" [routerLink]="['../../users',vaccination?.id]">Hier Anmelden</button>
+<button *ngIf="authService.isLoggedIn() && checkParticipants() == false" class="ui tiny green icon button" [routerLink]="['../../users',vaccination?.id]">Hier Anmelden</button>
 <!--
 <button *ngIf="authService.isLoggedIn()" class="ui tiny red labeled icon button" (click)="removeVaccination()">
   <i class="remove icon"></i>Impfung löschen</button>

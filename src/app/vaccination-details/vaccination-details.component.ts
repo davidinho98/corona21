@@ -46,6 +46,22 @@ export class VaccinationDetailsComponent implements OnInit {
       this.us.remove(id).subscribe(res => this.forAdmin());
     }
   }
+/*
+  editPerson(id){
+
+  }*/
+
+  checkParticipants() {
+    if (this.vaccination.users.length < this.vaccination.amount) {
+      return false;
+    }
+    return true;
+  }
+
+  //lieferte aktuelle Anzahl der Impfteilnehmer*innen zu einem Termin
+  getcurParticipants() {
+    return this.vaccination.users.length;
+  }
 
   forAdmin() {
     const params = this.route.snapshot.params;
